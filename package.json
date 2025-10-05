@@ -1,0 +1,43 @@
+{
+  "name": "aivis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc && cp -r src/email-templates build/email-templates && cp -r src/notification-templates build/notification-templates",
+    "build:frontend": "cp -r ./public/admin ./build",
+    "start:local": "npm run build && npm run build:frontend && node build/index.js",
+    "start:dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
+    "start": "npm run build && node build/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.1",
+    "multer": "^1.4.5-lts.2",
+    "nodemailer": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "pdf-parse": "^1.1.1",
+    "pdf-parser": "^1.0.5",
+    "ua-parser-js": "^2.0.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.15.17",
+    "@types/nodemailer": "^6.4.17",
+    "@types/pdf-parse": "^1.1.5",
+    "@types/xlsx": "^0.0.36",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
